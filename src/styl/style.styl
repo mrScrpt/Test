@@ -1,0 +1,29 @@
+@import "./lib/smart-grid.styl"
+@import "./lib/mixin-lib.styl"
+reset();
+
+.wrapper
+  wrapper()
+  min-width 1200px //Против адаптивной верстки
+  background red
+
+//.debug
+//  debug(rgba(0, 0, 0, 0.5) ,1px solid #666)
+
+body
+  background blue
+
+header
+  row-flex()
+  .topMenu
+    col()
+    size(12)
+    borderOne(#ccc)
+    li
+      float left
+
+  .logo, .media, .callback
+    col()
+    size(4)
+
+
