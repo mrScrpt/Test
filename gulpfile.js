@@ -125,6 +125,7 @@ gulp.task('watch', ['browserSync'], function(){
     gulp.watch(config.src + config.preproc.watch, ['preproc']);
     gulp.watch(config.src + config.html.src, ['html']);
     gulp.watch(config.src + config.js.src, ['js']);
+    gulp.watch(config.src + config.img.src, ['img']);
 });
 
 gulp.task('browserSync', function(){

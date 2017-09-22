@@ -2,28 +2,55 @@
 @import "./lib/mixin-lib.styl"
 reset();
 
+a
+        text-decoration none
+
+$blueLight = #cbe5f1
+$greenLight = #e0ef8c
+$green = #709107
+$beige = #dfd5cd
+$cream = #d095a1
+
+
+
 .wrapper
-  wrapper()
-  min-width 1200px //Против адаптивной верстки
-  background balck
+    wrapper()
+    min-width 1200px //Против адаптивной верстки
+
 
 //.debug
 //  debug(rgba(0, 0, 0, 0.5) ,1px solid #666)
 
-body
-  background red
 
+
+.upLine
+    width 100%
+    bdr(top, $green, 3px)
 header
-  row-flex()
-  .topMenu
-    col()
-    size(12)
-    borderOne(#ccc)
-    li
-      float left
+    row-flex()
+    .topMenu
+        col()
+        size(12)
+        bdr(bottom, #eee)
 
-  .logo, .media, .callback
-    col()
-    size(4)
+        li
+            float left
+            a
+                display block
+                padding 3px 20px
+                color $green
+                text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.3);
 
-
+    .logo, .media, .callback
+        col()
+        size(4)
+    .media
+        .searcForm
+            box-sizing border-box
+            border none
+            width 90%
+            margin 0 auto
+            &__lable
+                width 70%
+            &__action
+                width 25%

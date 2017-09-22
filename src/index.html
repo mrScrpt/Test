@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+<!--DEBUG -->
 <div class="debug">
     <div>
         <div>
@@ -24,22 +25,37 @@
         </div>
     </div>
 </div>
+<!--DEBUG КОНЕЦ-->
 
 
-
-
-<div class="wrapper">
-    <header>
+<!--Верхняя линия-->
+<div class="upLine">
+    <header class="wrapper">
         <ul class="topMenu">
             <li><a href="#">Контакты</a></li>
-            <li><a href="#">О Центре</a></li>
+            <li><a href="#">О центре</a></li>
             <li><a href="#">Новости</a></li>
         </ul>
-        <div class="logo">Логотип</div>
-        <div class="media">Телефоны</div>
+        <div class="logo"><img src="img/logo-1.png" alt=""></div>
+        <div class="media">
+            <!--Поиск-->
+            <form class="sisea-search-form searcForm"><fieldset><input type="hidden" name="id" value="15"><input type="text" class="searcForm__lable" placeholder="Поиск..."><input type="submit" class="searcForm__action" value="Искать!"></fieldset></form>
+            <!--Поиск КОНЕЦ-->
+            <!--Телефоны-->
+            <div class="phone">
+                <div class="phone__ksNumber">(097)-77-22-232</div>
+                <div class="phone__vfNumber">(095)-77-22-232</div>
+                <div class="phone__lfNumber">(093)-77-22-232</div>
+            </div>
+            <!--Телефоны КОНЕЦ-->
+        </div>
         <div class="callback callback__header">Перезвоните</div>
     </header>
-    <div class="content content__index">
+</div>
+<!--Верхняя линия КОНЕЦ-->
+
+<!--Средняя часть-->
+<div class="wrapper content content__index">
         <h1>Завгловоко1</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem corporis dolorem error esse, eum ex expedita facere facilis fugiat illum ipsa, maxime mollitia perspiciatis quam quibusdam sed temporibus. Sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem corporis dolorem error esse, eum ex expedita facere facilis fugiat illum ipsa, maxime mollitia perspiciatis quam quibusdam sed temporibus. Sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem corporis dolorem error esse, eum ex expedita facere facilis fugiat illum ipsa, maxime mollitia perspiciatis quam quibusdam sed temporibus. Sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem corporis dolorem error esse, eum ex expedita facere facilis fugiat illum ipsa, maxime mollitia perspiciatis quam quibusdam sed temporibus. Sint?</p>
@@ -47,7 +63,10 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem corporis dolorem error esse, eum ex expedita facere facilis fugiat illum ipsa, maxime mollitia perspiciatis quam quibusdam sed temporibus. Sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
 
     </div>
-    <footer>Футер</footer>
-</div>
+<!--Средняя часть КОНЕЦ-->
+
+<!--Футер-->
+    <footer class="wrapper">Футер</footer>
+<!--Футер КОНЕЦ-->
 </body>
 </html>
