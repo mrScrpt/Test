@@ -1,5 +1,14 @@
-bdrOne(color)
-  border 1px solid color
 
-bdr(side,color,size=1px)
-  border-{side}: size solid color
+//Формы
+input[type=text]
+    border: 1px solid $grayLight
+    border-radius 2px
+    box-shadow: 0 1px 3px rgba($gray, 0.5) inset;
+    padding 2px
+
+input[type=submit]
+    border: 2px solid $greenLight
+    border-radius 2px
+    padding 1px
+    background $greenLight
+    color white

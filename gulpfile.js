@@ -30,6 +30,10 @@ var config = {
         src: '/img/*',
         dest: '/img/'
     },
+    imgBg: {
+        src: '/styl/img/*',
+        dest: '/css/img/'
+    },
     css: {
         src: '/css/*',
         dest: '/css/'
@@ -60,6 +64,14 @@ gulp.task('img', function(){
             progressive: true
         }))
         .pipe(gulp.dest(config.build + config.img.dest));
+});
+
+gulp.task('imgBg', function(){
+    gulp.src(config.src + config.imgBg.src)
+        .pipe(imagemin({
+            progressive: true
+        }))
+        .pipe(gulp.dest(config.build + config.imgBg.dest));
 });
 
 gulp.task('js', function(){
@@ -98,7 +110,7 @@ gulp.task('del', function(){
     }
 });
     
-gulp.task('all', ['del', 'html', 'fonts', 'img', 'js', 'css', 'preproc'], function(){   
+gulp.task('all', ['del', 'html', 'fonts', 'img', 'imgBg', 'js', 'css', 'preproc'], function(){   
     
 });
 
@@ -125,7 +137,8 @@ gulp.task('watch', ['browserSync'], function(){
     gulp.watch(config.src + config.preproc.watch, ['preproc']);
     gulp.watch(config.src + config.html.src, ['html']);
     gulp.watch(config.src + config.js.src, ['js']);
-    gulp.watch(config.src + config.img.src, ['img']);
+    gulp.watch(config.src + config.imgBg.src, ['imgBg']);
+    gulp.watch(config.src + config.img.src, ['img']);    
 });
 
 gulp.task('browserSync', function(){

@@ -1,15 +1,17 @@
 @import "./lib/smart-grid.styl"
 @import "./lib/mixin-lib.styl"
+@import "./lib/var-lib.styl"
+@import "./lib/style-lib.styl"
 reset();
+*
+    box-sizing border-box
+body
+    font: 14px 'Open Sans', Arial, Helvetica, sans-serif;
+    color $gray
 
 a
         text-decoration none
 
-$blueLight = #cbe5f1
-$greenLight = #e0ef8c
-$green = #709107
-$beige = #dfd5cd
-$cream = #d095a1
 
 
 
@@ -19,38 +21,167 @@ $cream = #d095a1
 
 
 //.debug
-//  debug(rgba(0, 0, 0, 0.5) ,1px solid #666)
+//    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
 
 
 
 .upLine
     width 100%
-    bdr(top, $green, 3px)
+    bdr(top, $blue, 3px)
 header
-    row-flex()
+    row-float()
+
     .topMenu
         col()
-        size(12)
-        bdr(bottom, #eee)
+        col-float()
+        size(6)
+        line-height 1.5rem
+        bdr(bottom, $grayLight)
+        ul
+            clearfix()
+
+            li
+                float left
+                a
+                    padding 5px 15px
+                    display block
+                    color $gray
+                    ts(0.2, $grayLight)
+                    font-weight bold
+                    trns(0.5s, background)
+                    //trns(0.5s, color )
+                    &:hover
+                        background $blue
+                        color white
+
+    .search
+        col()
+        col-float()
+        size(6)
+        bdr(bottom, $grayLight)
+        text-align right
+        padding-right 15px
+        padding-top 5px
+        padding-bottom  5px
+        line-height 1.5rem
+
+    .logo
+        col()
+        col-float()
+        size(4)
+        background red
+
+    .phone
+        col()
+        col-float()
+        size(4)
+        background blue
+    .callback
+        col()
+        col-float()
+        size(4)
+        background yellow
+
+
+.middleMenu
+    background $blue
+    width 100%
+    clearfix()
+    bs(0.5, $blueDark, $blueDark)
+
+    ul
+
 
         li
             float left
-            a
-                display block
-                padding 3px 20px
-                color $green
-                text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.3);
 
-    .logo, .media, .callback
-        col()
-        size(4)
-    .media
-        .searcForm
-            box-sizing border-box
-            border none
-            width 90%
-            margin 0 auto
-            &__lable
-                width 70%
-            &__action
-                width 25%
+
+            a
+                padding 10px 15px
+                display block
+                bdr(right, $blueLight)
+                color white
+                ts(1, $blueDark)
+                trns(0.5s, background)
+                &:hover
+                    background $blueDark
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
