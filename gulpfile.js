@@ -58,6 +58,9 @@ gulp.task('fonts', function(){
         .pipe(gulp.dest(config.build + config.fonts.dest));
 });
 
+
+
+
 gulp.task('img', function(){
     gulp.src(config.src + config.img.src)
         .pipe(imagemin({
@@ -123,9 +126,9 @@ gulp.task('preproc', function(){
             browsers: ['> 0.01%'],
             cascade: false
        }))
-       .pipe(cleanCSS({
-           level: 2
-       }))
+       // .pipe(cleanCSS({
+       //     level: 2
+       // }))
        .pipe(sourcemaps.write('.'))
        .pipe(gulp.dest(config.build + config.preproc.dest))
        .pipe(browserSync.reload({
@@ -139,6 +142,7 @@ gulp.task('watch', ['browserSync'], function(){
     gulp.watch(config.src + config.js.src, ['js']);
     gulp.watch(config.src + config.imgBg.src, ['imgBg']);
     gulp.watch(config.src + config.img.src, ['img']);    
+    gulp.watch(config.src + config.fonts.src, ['fonts']);    
 });
 
 gulp.task('browserSync', function(){
