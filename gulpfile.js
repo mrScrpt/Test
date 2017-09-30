@@ -43,7 +43,7 @@ var config = {
         src: '/styl/style.styl',
         dest: '/css/'
     }
-};
+};  config.src + config.img.src
 
 gulp.task('html', function(){
     gulp.src(config.src + config.html.src)
