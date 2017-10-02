@@ -1,18 +1,40 @@
 @import "./lib/smart-grid.styl"
 @import "./lib/mixin-lib.styl"
 @import "./lib/var-lib.styl"
-@import "./lib/style-lib.styl"
 @import "./lib/fonts-lib.styl"
+reset();
+@import "./lib/style-lib.styl"
+
 
 webfont('Roboto', 'Roboto-Regular', true, 'normal')
-
-webfont('Oswald', 'Oswald-Regular', true, 'normal')
-
-reset();
-
+webfont('Roboto-bold', 'Roboto-Bold', true, 'bold')
 
 *
     box-sizing border-box
+
+//    BEM____
+    .phoneline
+        row-flex()
+        flex-direction column
+        justify-content center
+
+
+        height 100%
+        &__number
+            col()
+            text-align center
+            padding 3px
+            font-weight bold
+
+
+
+
+
+
+
+//    BEM____-END
+
+
 body
     font: 14px 'Roboto';
     color $gray
@@ -25,8 +47,8 @@ a
     min-width 1200px //Против адаптивной верстки
 
 
-.debug
-    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
+//.debug
+//    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
 
 
 
@@ -69,26 +91,54 @@ a
     &__submit
         min-width 70px
         width 30%
-        trns(0.5s, background)
-        cursor pointer
-        &:hover
-            background $blue
+
 
 
 header
     row-flex()
+    justify-content center
     .logo
         col()
         size(4)
-        background red
+
     .phone
         col()
         size(4)
-        background blue
+
+
+        &__line
+            background red
+
     .callback
         col()
         size(4)
-        background yellow
+        
+        margin auto
+
+        &__bg
+            background url("img/bg__callback.png") no-repeat right
+            //background blue
+            display block
+            width 43%
+            height 47px
+            float left
+
+
+
+        &__link
+
+            float right
+            width 53%
+            height 47px
+            padding-left 15px
+            padding-top 5px
+            font-size 16px
+            background url("img/bg__separator.png") no-repeat 0 0
+            a
+                color $grayBlack
+                trns(0.5s, color)
+                &:hover
+                    color $blueDark
 
 
 
@@ -96,24 +146,77 @@ header
 
 
 
+.middleLine
+    background $blueDark
+    width 100%
+    height 65px
+
+
+.middleMenu
+    display inline-block
+    ul
+        li
+            float: left;
+            a
+                display block
+                padding 0 15px
+                line-height 65px
+                color white
+                trns(0.5s, background)
+                &:hover
+                    background $blue
 
 
 
-
+.bannerContent
+    row-flex()
 
 .banner
     width 1920px
     height 645px
     background url("img/banner.jpg") no-repeat 0 0
     margin 0 auto
+    margin-bottom 40px
     
 
 
 
+.appeal
+    col()
+    size(8)
+    background url("img/img__motivation.png") no-repeat 0 100px
+
+
+
+.subscribe
+    col()
+    size(4)
+    margin-top 160px
+    text-align center
+    &__head
+        background $blueDark
+        line-height 65px
+        color white
+        font-size 20px
+    &__body
+        background url("img/bg__form.png")
+        padding 25px 0
+        form
+            input[type=text]
+                width 80%
+                margin 12px 0
+            input[type=submit]
+                margin-top 20px
+                font-size 18px
 
 
 
 
-
-
-
+.content
+    row-flex()
+    .leftSide
+        col()
+        size(8)
+    .rightSide
+        col()
+        size(4)
