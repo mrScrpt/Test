@@ -13,24 +13,27 @@ webfont('Roboto-bold', 'Roboto-Bold', true, 'bold')
     box-sizing border-box
 
 //    BEM____
-    .phoneline
-        row-flex()
-        flex-direction column
-        justify-content center
+.phoneline
+    row-flex()
+    flex-direction column
+    justify-content center
 
 
-        height 100%
-        &__number
-            col()
-            text-align center
-            padding 3px
-            font-weight bold
-
-
-
+    height 100%
+    &__number
+        col()
+        text-align center
+        padding 3px
+        font-weight bold
 
 
 
+.footerBlock
+    col()
+    size(3)
+    &__title
+        color #fff
+        text-decoration underline
 
 //    BEM____-END
 
@@ -47,8 +50,8 @@ a
     min-width 1200px //Против адаптивной верстки
 
 
-//.debug
-//    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
+.debug
+    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
 
 
 
@@ -180,6 +183,7 @@ header
 .appeal
     col()
     size(8)
+
     background url("img/img__motivation.png") no-repeat 0 100px
 
 
@@ -210,12 +214,28 @@ header
 
 .content
     row-flex()
+    margin-bottom 150px
     .leftSide
         col()
         size(8)
     .rightSide
         col()
         size(4)
+        .comments
+            bs(0.5)
+            bdrOne($grayLight)
+            &__head
+                line-height 65px
+                color white
+                font-size 20px
+                text-align center
+                background $gray
+            &__body
+
+                height 500px
+
+
+
 
 
 
@@ -225,6 +245,8 @@ header
 
 
 
+.footerRow
+    row-flex()
 
 
 
