@@ -6,8 +6,12 @@ reset();
 @import "./lib/style-lib.styl"
 
 
-webfont('Roboto', 'Roboto-Regular', true, 'normal')
-webfont('Roboto-bold', 'Roboto-Bold', true, 'bold')
+webfont('Roboto', 'Roboto-Regular', true, 400)
+webfont('Roboto', 'Roboto-Medium', true, 500)
+webfont('Roboto', 'Roboto-Bold', true, 600)
+
+
+
 
 *
     box-sizing border-box
@@ -31,15 +35,26 @@ webfont('Roboto-bold', 'Roboto-Bold', true, 'bold')
 .footerBlock
     col()
     size(3)
+    background red
+
     &__title
         color #fff
-        text-decoration underline
+        font-size 18px
+        font-weight 500
+        .bdr
+            bdr(bottom, $grayLight, 2px )
+    &__body
+        margin-top 45px
+        &-social
+            width 50%
+
 
 //    BEM____-END
 
 
 body
-    font: 14px 'Roboto';
+    font: 16px 'Roboto';
+    font-weight 400
     color $gray
 
 a
@@ -50,8 +65,8 @@ a
     min-width 1200px //Против адаптивной верстки
 
 
-.debug
-    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
+//.debug
+//    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
 
 
 
@@ -169,10 +184,14 @@ header
 
 .bannerContent
     row-flex()
+    margin-bottom 40px
 
 .banner
-    width 1920px
+    max-width 1920px
+    width 100%
     height 645px
+    position absolute
+    z-index -1
     background url("img/banner.jpg") no-repeat 0 0
     margin 0 auto
     margin-bottom 40px
@@ -193,6 +212,7 @@ header
     size(4)
     margin-top 160px
     text-align center
+    height 485px
     &__head
         background $blueDark
         line-height 65px
@@ -231,7 +251,6 @@ header
                 text-align center
                 background $gray
             &__body
-
                 height 500px
 
 
@@ -251,9 +270,16 @@ header
 
 
 
+.footerMenu
+    ul
+        li
+            padding 4px 0
+            a
+                color #ffffff
 
-
-
+.footerSocial
+    a
+        float left
 
 
 
