@@ -29,13 +29,14 @@ webfont('Roboto', 'Roboto-Bold', true, 600)
         text-align center
         padding 3px
         font-weight bold
-
+        &-footer
+            text-align left
+            color $red
 
 
 .footerBlock
     col()
     size(3)
-    background red
 
     &__title
         color #fff
@@ -45,8 +46,10 @@ webfont('Roboto', 'Roboto-Bold', true, 600)
             bdr(bottom, $grayLight, 2px )
     &__body
         margin-top 45px
-        &-social
-            width 50%
+    &__body-social
+        width 50%
+
+
 
 
 //    BEM____-END
@@ -259,10 +262,11 @@ header
 
 
 .bottomLine
-    height 380px
+    height 365px
     background $grayDark
 
-
+footer
+    padding-top 15px
 
 .footerRow
     row-flex()
@@ -276,10 +280,14 @@ header
             padding 4px 0
             a
                 color #ffffff
+                trns(0.2s, color )
+                &:hover
+                    color $red
 
 .footerSocial
     a
         float left
+        margin 2.5px 5px
 
 
 
