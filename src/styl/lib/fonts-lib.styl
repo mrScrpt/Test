@@ -1,12 +1,12 @@
 font-url(file)
     return '../fonts/' + file
 
-webfont(family, file, hack-chrome-windows = false, weight = 'normal')
+webfont(family, file, hack-chrome-windows = false, weight = 'normal', style = 'normal')
     @font-face
         font-family family
         src url(font-url(file + '.ttf')) format('truetype')
         font-weight weight
-        font-style normal
+        font-style style
     if hack-chrome-windows
         @media screen and (-webkit-min-device-pixel-ratio:0)
             @font-face

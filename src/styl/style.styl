@@ -9,6 +9,7 @@ reset();
 webfont('Roboto', 'Roboto-Regular', true, 400)
 webfont('Roboto', 'Roboto-Medium', true, 500)
 webfont('Roboto', 'Roboto-Bold', true, 600)
+webfont('Roboto', 'Roboto-Italic', true, normal, italic)
 
 
 
@@ -238,6 +239,8 @@ header
 .content
     row-flex()
     margin-bottom 150px
+    &__cat
+        justify-content flex-end
     .leftSide
         col()
         size(8)
@@ -295,11 +298,106 @@ footer
     order(0)
     col()
     size(12)
+
     ul
-        padding 5px 15px
+        line-height 65px
+        padding-left 15px
         li
             display inline-block
             a
                 display block
                 color $grayDark
+
+.contentBlock
+    order(2)
+    col()
+    size(9)
+    margin-bottom 20px
+.tiledMenu
+    order(2)
+    col()
+    size(9)
+    align-self flex-start
+    &__title
+        font-size 16px
+        color $gray
+        font-style: italic
+        bdr(bottom, $grayLight)
+
+
+
+.tiledItem
+    col()
+    size(12)
+    clearfix()
+    &__title
+        color black
+    &__img
+        display block
+        float left
+        width 50%
+    &__about
+        float right
+        width 50%
+
+
+.leftMenu
+    order(1)
+
+
+    col()
+    size(3)
+
+    &__title
+        line-height 65px
+        color white
+        font-size 20px
+        text-align center
+        background $blueDark
+    ul
+        bdrOne($grayLight)
+        li
+            bdr(bottom, $grayLight)
+            a
+                display block
+                padding 15px 15px 15px 15px
+                color $grayDark
+                font-size 18px
+                trns(0.5s, background )
+                background url("img/ico__arrowMenu.png") 98% 50% no-repeat
+
+                &:hover
+                    background-color $blue
+                    background-image url("img/ico__arrowMenu-hover.png")
+                    color white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
