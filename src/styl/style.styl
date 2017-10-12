@@ -69,8 +69,8 @@ a
     min-width 1200px //Против адаптивной верстки
 
 
-.debug
-    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
+//.debug
+//    debug(rgba(0, 0, 0, 0.5), 1px solid #666)
 
 
 
@@ -318,6 +318,7 @@ footer
     col()
     size(9)
     align-self flex-start
+    margin-bottom 150px
     &__title
         font-size 16px
         color $gray
@@ -329,16 +330,38 @@ footer
 .tiledItem
     col()
     size(12)
+    margin 15px 0
     clearfix()
-    &__title
-        color black
     &__img
         display block
         float left
-        width 50%
+        width 44%
+    &__title
+        float right
+        width 56%
+        padding-left 30px
+        padding-right 30px
+        padding-bottom 15px
+        font-size 1.6rem
+        color $gray
+        font-weight bold
+
+    &__descrpt
+        float right
+        width 56%
+        padding-left 30px
     &__about
         float right
-        width 50%
+        width 56%
+        padding-left 30px
+        text-align right
+        color $red
+        font-weight bold
+        trns(0.5s, color)
+        &:hover
+            color $blueDarks
+
+
 
 
 .leftMenu
@@ -370,8 +393,6 @@ footer
                     background-color $blue
                     background-image url("img/ico__arrowMenu-hover.png")
                     color white
-
-
 
 
 
