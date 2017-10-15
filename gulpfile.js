@@ -10,40 +10,58 @@ const concat = require('gulp-concat');
 const del = require('del');
 const uglify = require('gulp-uglify');
 const sourcemaps = require('gulp-sourcemaps');
+const ftp = require('gulp-ftp');
 
 var config = {
     src: './src',
-    build: './build',
+    build: './build',    
+    host: '193.0.61.47',
+    user: 'chosvob6128',
+    pass: 'df25c3cbc3',
     html: {
         src: '/*.html',
         dest: '/'
     },
     fonts: {
         src: '/fonts/*',
-        dest: '/fonts/'
+        dest: '/fonts/',
+        out: '/fonts/'
     },
     js: {
         src: '/js/*',
-        dest: '/js/'
+        dest: '/js/',
+        out: '/js/'
     },
     img: {
         src: '/img/*',
-        dest: '/img/'
+        dest: '/img/',
+        out: '/img/'
     },
     imgBg: {
         src: '/styl/img/*',
-        dest: '/css/img/'
+        dest: '/css/img/',
+        out: '/css/img/'
     },
     css: {
         src: '/css/*',
-        dest: '/css/'
+        dest: '/css/',
+        out: '/css/'
     },
     preproc: {
         watch: '/styl/**/*.styl',
         src: '/styl/style.styl',
         dest: '/css/'
+    },
+    server: {
+        path: 'www/xn--90abheadq3bdbb6a.com.ua',
+        url: 'http://chosvob6128.focus.chost.com.ua/'
+
     }
-};  config.src + config.img.src
+};
+
+
+
+
 
 gulp.task('html', function(){
     gulp.src(config.src + config.html.src)
@@ -91,7 +109,8 @@ gulp.task('js', function(){
 
 gulp.task('css', function(){
     gulp.src(config.src + config.css.src)
-        .pipe(sourcemaps.init())
+        .pipe(concat('modules.css'))
+        .pipe(sourcemaps.init())        
         .pipe(cleanCSS({
             level: 2
         }))
@@ -101,6 +120,8 @@ gulp.task('css', function(){
             stream: true
         }));
 });
+
+
 
 gulp.task('del', function(){
     let path = config.build + '/*';
@@ -132,9 +153,9 @@ gulp.task('preproc', function(){
             browsers: ['> 0.01%'],
             cascade: false
        }))
-       // .pipe(cleanCSS({
-       //     level: 2
-       // }))
+       .pipe(cleanCSS({
+           level: 2
+       }))
        .pipe(sourcemaps.write('.'))
        .pipe(gulp.dest(config.build + config.preproc.dest))
        .pipe(browserSync.reload({
@@ -142,6 +163,8 @@ gulp.task('preproc', function(){
         }));
 });
 
+
+// Локальный Вотчер
 gulp.task('watch', ['all','browserSync'], function(){
     gulp.watch(config.src + config.preproc.watch, ['preproc']);
     gulp.watch(config.src + config.html.src, ['html']);
@@ -151,6 +174,80 @@ gulp.task('watch', ['all','browserSync'], function(){
     gulp.watch(config.src + config.fonts.src, ['fonts']);    
 });
 
+// Вотчер под сервер
+gulp.task('rem', function(){
+    gulp.watch(config.src + config.preproc.watch, ['preproc', 'ftpMoveCSS']);
+    gulp.watch(config.src + config.js.src, ['js' , 'ftpMoveJs']);
+    gulp.watch(config.src + config.imgBg.src, ['imgBg' , 'ftpMoveImgBg']);
+    gulp.watch(config.src + config.img.src, ['img' , 'ftpMoveImg']);
+    gulp.watch(config.src + config.fonts.src, ['fonts' , 'ftpMoveFonts']); 
+});
+
+
+//перенос файлов на сервер
+
+gulp.task('ftpMoveCSS', function () {
+    return gulp.src(config.build + config.css.src)
+        .pipe(ftp({
+            host: 'focus.cityhost.com.ua',
+            user: 'chosvob6128',
+            pass: 'T123wer911Big',
+            remotePath: config.server.path + config.css.out
+            }))
+        
+});
+
+gulp.task('ftpMoveJs', function () {
+    return gulp.src(config.build + config.js.src)
+        .pipe(ftp({
+            host: 'focus.cityhost.com.ua',
+            user: 'chosvob6128',
+            pass: 'T123wer911Big',
+            remotePath: config.server.path + config.js.out
+            }))
+        
+});
+
+gulp.task('ftpMoveImgBg', function () {
+    return gulp.src(config.build + config.imgBg.src)
+        .pipe(ftp({
+            host: 'focus.cityhost.com.ua',
+            user: 'chosvob6128',
+            pass: 'T123wer911Big',
+            remotePath: config.server.path + config.imgBg.out
+            }))
+        
+});
+
+gulp.task('ftpMoveImg', function () {
+    return gulp.src(config.build + config.img.src)
+        .pipe(ftp({
+            host: 'focus.cityhost.com.ua',
+            user: 'chosvob6128',
+            pass: 'T123wer911Big',
+            remotePath: config.server.path + config.img.out
+            }))
+        
+});
+
+gulp.task('ftpMoveFonts', function () {
+    return gulp.src(config.build + config.fonts.src)
+        .pipe(ftp({
+            host: 'focus.cityhost.com.ua',
+            user: 'chosvob6128',
+            pass: 'T123wer911Big',
+            remotePath: config.server.path + config.fonts.out
+            }))
+        
+});
+
+
+
+
+
+
+
+//Локальный
 gulp.task('browserSync', function(){
    browserSync.init({
         server: {
@@ -158,3 +255,16 @@ gulp.task('browserSync', function(){
         }
     })
 });
+
+//серверный
+gulp.task('browserSyncServer', function(){
+    browserSync.init({
+        proxy: 'http://chosvob6128.focus.chost.com.ua/', // проксирование вашего удаленного сервера
+        host:  'chosvob6128.focus.chost.com.ua/',
+        port: 3000,
+        open: 'external'
+        
+    });    
+});
+
+
