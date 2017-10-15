@@ -177,10 +177,10 @@ gulp.task('watch', ['all','browserSync'], function(){
 // Вотчер под сервер
 gulp.task('rem', function(){
     gulp.watch(config.src + config.preproc.watch, ['preproc', 'ftpMoveCSS']);
-    gulp.watch(config.src + config.js.src, ['js' , 'ftpMoveJs']);
-    gulp.watch(config.src + config.imgBg.src, ['imgBg' , 'ftpMoveImgBg']);
-    gulp.watch(config.src + config.img.src, ['img' , 'ftpMoveImg']);
-    gulp.watch(config.src + config.fonts.src, ['fonts' , 'ftpMoveFonts']); 
+    gulp.watch(config.src + config.js.src, ['js', 'ftpMoveJs']);
+    gulp.watch(config.src + config.imgBg.src, ['imgBg', 'ftpMoveImgBg']);
+    gulp.watch(config.src + config.img.src, ['img', 'ftpMoveImg']);
+    gulp.watch(config.src + config.fonts.src, ['fonts', 'ftpMoveFonts']); 
 });
 
 
